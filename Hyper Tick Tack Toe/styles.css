@@ -1,0 +1,92 @@
+/* Custom styles for Hyper-Advanced Tic-Tac-Toe */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+#board {
+    position: relative;
+    z-index: 10;
+    width: 400px; /* Fixed large size */
+    height: 400px;
+}
+
+.cell {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: none; /* No transform or scale animations */
+}
+
+.cell:hover {
+    box-shadow: 0 0 10px rgba(74, 111, 165, 0.3); /* Subtle glow on hover */
+}
+
+.cell.x, .cell.o {
+    animation: mark-fade 0.3s ease-in; /* Fade-in for marks */
+}
+
+.cell.fading {
+    opacity: 0.3; /* Fading effect */
+    transition: opacity 0.5s ease;
+}
+
+.cell.vanished {
+    opacity: 0; /* Vanish effect */
+    transition: opacity 0.5s ease;
+}
+
+.cell.win {
+    background: rgba(74, 111, 165, 0.3);
+    transition: background 0.3s ease;
+}
+
+.score.active {
+    box-shadow: 0 0 10px rgba(74, 111, 165, 0.5);
+}
+
+#game-history::-webkit-scrollbar {
+    width: 8px;
+}
+
+#game-history::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#game-history::-webkit-scrollbar-thumb {
+    background: #4a6fa5;
+    border-radius: 10px;
+}
+
+#game-history::-webkit-scrollbar-thumb:hover {
+    background: #ff6b6b;
+}
+
+@media (max-width: 640px) {
+    #board {
+        width: 300px; /* Slightly smaller for mobile, but still large */
+        height: 300px;
+    }
+
+    .cell {
+        font-size: 2.5rem !important;
+    }
+
+    .scoreboard {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
